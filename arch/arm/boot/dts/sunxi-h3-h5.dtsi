@@ -47,6 +47,7 @@
 #include <dt-bindings/reset/sun8i-de2.h>
 #include <dt-bindings/reset/sun8i-h3-ccu.h>
 #include <dt-bindings/reset/sun8i-r-ccu.h>
+#include <dt-bindings/thermal/thermal.h>
 
 / {
 	interrupt-parent = <&gic>;
@@ -189,6 +190,11 @@
 				};
 			};
 		};
+
+		ths: ths@01c25000 {
+			compatible = "allwinner,sun8i-h3-ths";
+			#thermal-sensor-cells = <0>;
+			};
 
 		mmc0: mmc@1c0f000 {
 			/* compatible and clocks are in per SoC .dtsi file */
