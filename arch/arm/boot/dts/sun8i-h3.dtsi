@@ -66,6 +66,8 @@
 		};
 	};
 
+	
+
 	cpus {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -108,6 +110,15 @@
 			clock-names = "cpu";
 			operating-points-v2 = <&cpu0_opp_table>;
 			#cooling-cells = <2>;
+		};
+	};
+
+	thermal-zones {
+		cpu-thermal {
+			/* milliseconds */
+			polling-delay-passive = <250>;
+			polling-delay = <1000>;
+			thermal-sensors = <&ths 0>;
 		};
 	};
 
@@ -224,9 +235,15 @@
 		      "sample";
 };
 
+&ths {
+	compatible = "allwinner,sun8i-h3-ths";
+	#thermal-sensor-cells = <0>;
+};
+
 &pio {
 	compatible = "allwinner,sun8i-h3-pinctrl";
 };
+
 
 &rtc {
 	compatible = "allwinner,sun8i-h3-rtc";
