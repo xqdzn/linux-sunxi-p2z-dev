@@ -139,17 +139,6 @@
 	status = "okay";
 };
 
-&ths {
-	#thermal-sensor-cells = <0>;
-	compatible = "allwinner,sun8i-h3-ths";
-	reg = <0x1c25000 0x400 0x1c14234 0x04>;
-	interrupts = <0x00 0x1f 0x04>;
-	resets = <0x03 0x2a>;
-	reset-names = "ahb";
-	clocks = <0x03 0x37 0x03 0x45>;
-	clock-names = "ahb\0ths";
-};
-
 &uart0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&uart0_pa_pins>;
