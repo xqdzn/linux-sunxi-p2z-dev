@@ -235,11 +235,6 @@
 		      "sample";
 };
 
-&ths {
-	compatible = "allwinner,sun8i-h3-ths";
-	#thermal-sensor-cells = <0>;
-};
-
 &pio {
 	compatible = "allwinner,sun8i-h3-pinctrl";
 };
