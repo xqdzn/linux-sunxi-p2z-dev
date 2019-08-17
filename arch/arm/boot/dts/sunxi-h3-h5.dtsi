@@ -198,16 +198,19 @@
 			};
 		};
 
-		ths: thermal-sensor@1c25000 {
-			compatible = "allwinner,sun8i-h3-ths";
-			reg = <0x01c25000 0x100>;
-			clocks = <&ccu CLK_BUS_THS>, <&ccu CLK_THS>;
-			clock-names = "bus", "mod";
-			resets = <&ccu RST_BUS_THS>;
+		ths: ths@1c25000 {
 			#thermal-sensor-cells = <0>;
-			#io-channel-cells = <0>;
+			compatible = "allwinner,sun8i-h3-ths";
+			reg = <0x01c25000 0x400>,
+			      <0x01c14234 0x4>;
+			reg-names = "ths", "calibration";
+			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
+			resets = <&ccu RST_BUS_THS>;
+			reset-names = "ahb";
+			clocks = <&ccu CLK_BUS_THS>, <&ccu CLK_THS>;
+			clock-names = "ahb", "ths";
 		};
-
+		
 		mmc0: mmc@1c0f000 {
 			/* compatible and clocks are in per SoC .dtsi file */
 			reg = <0x01c0f000 0x1000>;
